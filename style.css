@@ -9,11 +9,124 @@ html,body{
 }
 
 #root{
-    display: flex;
-    padding: 1%;
     font-family: 'montserrat';
-    min-height: 100vmin;
-    min-width : 135vmin;
-    
-    background-color: rgb(248, 227, 227);
+    min-height: 100vh;
+    min-width : 70vmax;     
+    background-color: rgb(246, 246, 246);
+    border-radius: 1%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+#title{
+    /* padding: 0px 10px; */
+    font-weight: 750;
+    font-size: 40px;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 25px;
+}
+
+.nav-items>ul{
+    display: flex;
+    list-style-type: none;
+    font-weight: 400;
+    font-size: 25px;
+    gap: 30px;
+     
+}
+
+.nav-items>ul>li{
+    padding: 10px;
+    padding-left: 20px;
+}
+
+/* for search buttons */
+:root {
+  --rad: .7rem;
+  --dur: .3s;
+  --color-dark: #2f2f2f;
+  --color-light: #fff;
+  --color-brand: #57bd84;
+  --font-fam: 'Lato', sans-serif;
+  --height: 3rem;
+  --btn-width: 6rem;
+  --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
+
+form {
+  position: relative;
+  width: 30.5rem;
+  background: var(--color-brand);
+  border-radius: var(--rad);
+
+}
+input, button {
+  height: var(--height);
+  font-family: var(--font-fam);
+  border: 0;
+  color: var(--color-dark);
+  font-size: 1.2rem;
+}
+input[type="search"] {
+  outline: 0; 
+  width: 100%;
+  background: var(--color-light);
+  padding: 0px 1.6rem;
+  border-radius: var(--rad);
+  appearance: none; 
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+}
+button {
+  display: none; 
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--btn-width);
+  font-weight: 300;
+  background: var(--color-brand);
+  border-radius: 0 var(--rad) var(--rad) 0;
+}
+
+input:not(:placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+  + button {
+    display: block;
+  }
+}
+label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+
+/* footer */
+
+footer{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    /* background: #3f3f3f; */
+    border-radius: 1%;
+}
+
+footer>div>p{
+    font-size: 16px;
 }
