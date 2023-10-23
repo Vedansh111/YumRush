@@ -32,8 +32,8 @@ const HeaderComponent = () => {
             {search}
             <nav className='nav-items'>
                 <ul>
-                    <li>About</li>
-                    <li>Cart</li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/cart">Cart</a></li>
                 </ul>
             </nav>
         </div>
