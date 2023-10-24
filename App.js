@@ -1301,22 +1301,27 @@ const resturantlist = [
     },
 ]
 
-const CardComponent = (props) => {
+const CardComponent = ({resturant}) => {
     const star = <img id="star" src='https://img.icons8.com/?size=1x&id=7856&format=png' alt='star'></img>
     return (
         <div className="cards">
             <a href="#" class="card">
-                <img src={props.resturant.info?.image} alt="food photos" class="card__img" />
+                <img src={resturant.info?.image} alt="food photos" class="card__img" />
             </a>
-            <h4 className='ratings'>{props.resturant.info?.name}</h4>
-            <h4 className='ratings'>{star}{props.resturant.info?.avgRating} | {props.resturant.info?.sla?.deliveryTime}mins</h4>
-            <h4 className='ratings' id='cuisines'>{props.resturant.info?.cuisines.join(", ")}</h4>
+            <h4 className='ratings'>{resturant.info?.name}</h4>
+            <h4 className='ratings'>{star}{resturant.info?.avgRating} | {resturant.info?.sla?.deliveryTime}mins</h4>
+            <h4 className='ratings' id='cuisines'>{resturant.info?.cuisines.join(", ")}</h4>
         </div>
     )
 }
 const BodyComponent = () => {
     return (
         <div className='manycards'>
+            {
+                resturantlist.map(resturant => {
+                    return <CardComponent resturant = {resturant} />
+                })
+            }
             <CardComponent resturant={resturantlist[0]} />
             <CardComponent resturant={resturantlist[1]} />
             <CardComponent resturant={resturantlist[2]} />
