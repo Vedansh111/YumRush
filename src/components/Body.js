@@ -1,48 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-/*
-    Header
-     - Name(Home)
-     - Search bar
-     - About
-     - Cart
-
-    Body
-     - Cards
-        - Image
-        - Name of resturant
-        - Ratings
-
-    Footer
-     - Copyright
-*/
-
-// Header Section----------------------------------------------------------------
-const HeaderComponent = () => {
-    const title = <a href='/'><h1 id="title">YumRush</h1></a>;
-    const search = (
-        <form role="search">
-            <label>Search for stuff</label>
-            <input id="search" type="search" placeholder="Search..." required />
-            <button type="submit">Go</button>
-        </form>
-    )
-
-    return (
-        <div className='header'>
-            {title}
-            {search}
-            <nav className='nav-items'>
-                <ul>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/cart">Cart</a></li>
-                </ul>
-            </nav>
-        </div>
-    )
-};
-
-// Body Section----------------------------------------------------------------
 const resturantlist = [
     {
         "info": {
@@ -1305,8 +1260,8 @@ const CardComponent = ({resturant}) => {
     const star = <img id="star" src='https://img.icons8.com/?size=1x&id=7856&format=png' alt='star'></img>
     return (
         <div className="cards">
-            <a href="#" class="card">
-                <img src={resturant.info?.image} alt="food photos" class="card__img" />
+            <a href="#" className="card">
+                <img src={resturant.info?.image} alt="food photos" className="card__img" />
             </a>
             <h4 className='ratings'>{resturant.info?.name}</h4>
             <h4 className='ratings'>{star}{resturant.info?.avgRating} | {resturant.info?.sla?.deliveryTime}mins</h4>
@@ -1314,12 +1269,12 @@ const CardComponent = ({resturant}) => {
         </div>
     )
 }
-const BodyComponent = () => {
+const Body = () => {
     return (
         <div className='manycards'>
             {
                 resturantlist.map(resturant => {
-                    return <CardComponent resturant = {resturant} />
+                    return <CardComponent resturant = {resturant} key={resturant.info.id} />
                 })
             }
             <CardComponent resturant={resturantlist[0]} />
@@ -1333,38 +1288,8 @@ const BodyComponent = () => {
             <CardComponent resturant={resturantlist[8]} />
             <CardComponent resturant={resturantlist[9]} />
             <CardComponent resturant={resturantlist[10]} />
-            <CardComponent resturant={resturantlist[11]} />
         </div>
     )
 }
 
-
-// Footer Section----------------------------------------------------------------
-const FooterComponent = () => {
-    const date = new Date();
-    return (
-        <footer>
-            <div className="footer">
-                <p>© {date.getFullYear()} Vedansh Taraviya</p>
-            </div>
-        </footer>
-
-
-    )
-}
-
-
-// App Layout-----------------------------------------------------------------
-const AppLayout = () => {
-    return (
-        <>
-            <HeaderComponent />
-            <BodyComponent />
-            <FooterComponent />
-        </>
-    )
-}
-
-// Rendering
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<AppLayout />);
+export default Body;
