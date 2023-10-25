@@ -1,42 +1,37 @@
 import { useState } from "react";
-import resturantList from "../../config";
+import { resturantlist } from "../../config";
 
-
-function filter(searchText, resturants) {
-    resturants.filter((resturants) => {
-        resturants.data.nameincludes(searchText);
-    })
-}
 
 
 
 const Header = () => {
     const [searchText, setSearchText] = useState("");
-    const [resturants, setResturants] = useState(resturantList);
+    const [res, setRes] = useState(resturantlist);
     const title = <a href='/'><h1 id="title">YumRush</h1></a>;
-    const search = (
-        <form>
-            <label>Search for stuff</label>
-            <input id="search"
-                type="search"
-                placeholder="Search..."
-                value={searchText}
-                onChange={(e) => {
-                    setSearchText(e.target.value);
-                }}
-                />
-            <button onClick={() => {
-                //filtering the data
-                const data = filter(searchText, resturants);
-                setResturants(data);
-            }}>Go</button>
-        </form>
-    )
-
+    // const search = (
+    //     <form>
+    //         <label>Search for stuff</label>
+    //         <input id="search"
+    //             type="search"
+    //             placeholder="Search..."
+    //             value={searchText}
+    //             onChange={(e) => {
+    //                 setSearchText(e.target.value);
+    //             }}
+    //         />
+    //         <button onClick={(e) => {
+    //             //filtering the data
+    //             e.preventDefault();
+    //             const data = filterdata(searchText, res);
+    //             setRes(data); 
+    //             console.log();  
+    //         }}>Go</button>
+    //     </form>
+    // )
     return (
         <div className='header'>
             {title}
-            {search}
+            {/* {search} */}
             <nav className='nav-items'>
                 <ul>
                     <li><a href="/about">About</a></li>
@@ -45,6 +40,5 @@ const Header = () => {
             </nav>
         </div>
     )
-};
-
-export default Header;   
+}; 
+export default Header; 

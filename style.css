@@ -11,13 +11,20 @@ html,body{
 #root{
     font-family: 'montserrat';
     min-height: 100vh;
-    width : 160vh;     
-    /* background-color: aquamarine;    */
+    width : 150vh;   
+    /* background-color: aquamarine;  */
     border-radius: 1%;
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;    
+}
+
+#absolute{
+    display: grid;
+    place-items: center;
+    /* background-color: brown; */
 }
 
 /* header */
@@ -37,7 +44,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0px 25px;
+    /* background-color: #57bd84; */
     width: 90%;
 }
 
@@ -47,7 +54,6 @@ a{
     font-weight: 400;
     font-size: 20px;
     gap: 30px;
-    margin: 0px 25px;
      
 }
 
@@ -134,6 +140,7 @@ label {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    /* background-color: cadetblue; */
     padding: 30px;
 }
 
