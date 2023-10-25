@@ -6,8 +6,6 @@ const Footer = () => {
                 <p>© {date.getFullYear()} Vedansh Taraviya</p>
             </div>
         </footer>
-
-
     )
 }
 
