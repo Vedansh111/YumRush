@@ -51,11 +51,7 @@ const Body = () => {
             <CardComponent resturant={resturantlist[3]} />
             <CardComponent resturant={resturantlist[4]} />
             <CardComponent resturant={resturantlist[5]} />
-            <CardComponent resturant={resturantlist[6]} />
-            <CardComponent resturant={resturantlist[7]} />
-            <CardComponent resturant={resturantlist[8]} />
-            <CardComponent resturant={resturantlist[9]} />
-            <CardComponent resturant={resturantlist[10]} /> */}
+            <CardComponent resturant={resturantlist[6]} /> */}
             </div>
         </div>
     )
