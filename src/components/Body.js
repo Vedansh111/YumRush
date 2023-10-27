@@ -4,8 +4,8 @@ import Shimmer from './Shimmer';
 import { useState, useEffect } from 'react';
 
 // filtering out the search results..
-function filterdata(searchText, fillres) {
-    const result = fillres.filter((s) => {
+function filterdata(searchText, allres) {
+    const result = allres.filter((s) => {
         return s.info?.name.toLowerCase().includes(searchText.toLowerCase()) || s.info?.cuisines.join("").toLowerCase().includes(searchText);
     })
     return result
@@ -21,10 +21,10 @@ const Body = () => {
         getResturants();
     }, []);
 
-    async function getResturants(){
-        
+    async function getResturants() {
+
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.290785&lng=70.8020035&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
-        
+
         const data2 = await data.json();
         // Filtered Resturants..
         setFillRes(data2.data?.cards[5].card?.card?.gridElements?.infoWithStyle.restaurants);
@@ -32,7 +32,7 @@ const Body = () => {
         // All the restaurants..
         setAllRes(data2.data?.cards[5].card?.card?.gridElements?.infoWithStyle.restaurants);
     }
-        
+
 
     const search = (
         <form>
@@ -44,32 +44,27 @@ const Body = () => {
                 value={searchText}
                 onChange={(e) => {
                     setSearchText(e.target.value);
-                    if (e.target.value === "") {
-                        setFillRes([])
-                    }
-                    // else {
-                    //     const data = filterdata(searchText, fillres);
-                    //     setFillRes(data);
-                    // }
                 }}
             />
             <button onClick={(e) => {
                 //filtering the data
                 e.preventDefault();
-                const data = filterdata(searchText, fillres);
-                setFillRes(data);
-                
+                const dataSearced = filterdata(searchText, allres);
+                setFillRes(dataSearced);
+                console.log(allres);
+                console.log(fillres);
             }}>Go</button>
         </form>
-    )  
-
-    return (allres.length === 0) ? <Shimmer/> : (
+    )
+    return (allres.length === 0) ? <Shimmer /> : (
         <div>
             <div id='absolute'>{search}</div>
             <div className='manycards'>
 
                 {
-                    fillres.map(resturant => {
+                    (searchText === "") ? allres.map(resturant => {
+                        return <CardComponent resturant={resturant} key={resturant.info.id} />
+                    }) : fillres.map(resturant => {
                         return <CardComponent resturant={resturant} key={resturant.info.id} />
                     })
                 }
