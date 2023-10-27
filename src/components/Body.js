@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 function filterdata(searchText, res) {
     const result = res.filter((s) => {
-        return s.info?.name.toLowerCase().includes(searchText.toLowerCase());
+        return s.info?.name.toLowerCase().includes(searchText.toLowerCase()) || s.info?.cuisines.join("").toLowerCase().includes(searchText);
     })
     return result
 }
@@ -18,20 +18,25 @@ const Body = () => {
             <label>Search for stuff</label>
             <input id="search"
                 type="search"
+                autoComplete='off'
                 placeholder="Search..."
                 value={searchText}
                 onChange={(e) => {
                     setSearchText(e.target.value);
                     if (e.target.value === "") {
                         setRes(resturantlist)
-                    }                       
+                    } 
+                    // else {
+                    //     const data = filterdata(searchText, res);
+                    //     setRes(data);
+                    // }
                 }}
             />
             <button onClick={(e) => {
                 //filtering the data
                 e.preventDefault();
                 const data = filterdata(searchText, res);
-                setRes(data);  
+                setRes(data);
             }}>Go</button>
         </form>
     )
