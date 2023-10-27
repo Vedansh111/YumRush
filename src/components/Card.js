@@ -3,7 +3,7 @@ const CardComponent = ({resturant}) => {
     return (
         <div className="cards">
             <a href="#" className="card">
-                <img src={resturant.info?.image} alt="food photos" className="card__img" />
+                <img src={'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/'+resturant.info?.cloudinaryImageId} alt="food photos" className="card__img" />
             </a>
             <h4 className='ratings'>{resturant.info?.name}</h4>
             <h4 className='ratings'>{star}{resturant.info?.avgRating} | {resturant.info?.sla?.deliveryTime}mins</h4>
