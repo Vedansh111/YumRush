@@ -7,8 +7,9 @@ import { useState, useEffect } from 'react';
 function filterdata(searchText, allres) {
     const result = allres.filter((s) => {
         return s.info?.name.toLowerCase().includes(searchText.toLowerCase()) || s.info?.cuisines.join("").toLowerCase().includes(searchText);
+        
     })
-    return result
+    return result;
 }
 
 
@@ -16,10 +17,6 @@ const Body = () => {
     const [allres, setAllRes] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [fillres, setFillRes] = useState([]);
-
-    useEffect(() => {
-        getResturants();
-    }, []);
 
     async function getResturants() {
 
@@ -33,7 +30,11 @@ const Body = () => {
         setAllRes(data2.data?.cards[5].card?.card?.gridElements?.infoWithStyle.restaurants);
     }
 
+    useEffect(() => {
+        getResturants();
+    }, []);
 
+    
     const search = (
         <form>
             <label>Search for stuff</label>
@@ -51,21 +52,23 @@ const Body = () => {
                 e.preventDefault();
                 const dataSearced = filterdata(searchText, allres);
                 setFillRes(dataSearced);
-                console.log(allres);
-                console.log(fillres);
+                console.log(dataSearced);
             }}>Go</button>
         </form>
     )
+
     return (allres.length === 0) ? <Shimmer /> : (
         <div>
             <div id='absolute'>{search}</div>
             <div className='manycards'>
-
-                {
+                {   
+                    (fillres.length === 0)? <h1>opps</h1> :
                     (searchText === "") ? allres.map(resturant => {
+                        console.log("waah");
                         return <CardComponent resturant={resturant} key={resturant.info.id} />
                     }) : fillres.map(resturant => {
-                        return <CardComponent resturant={resturant} key={resturant.info.id} />
+                        console.log("loop ",fillres.length);
+                        return (fillres.length === '[]') ? <h1>Oops!!</h1> : <CardComponent resturant={resturant} key={resturant.info.id} />
                     })
                 }
             </div>

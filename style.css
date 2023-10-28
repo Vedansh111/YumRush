@@ -208,7 +208,7 @@ footer>div>p{
 /* shimmer */
 .demo:empty {
 	width: 250px;
-    height: 300px;
+    height: 150px;
     padding: 2px 1px;
     margin: 50px 14px; /* change height to see repeat-y behavior */
     
