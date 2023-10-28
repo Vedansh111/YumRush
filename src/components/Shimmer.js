@@ -1,15 +1,9 @@
 const Shimmer = () => {
     return (
         <div className="manycards">
-            <div className="demo"></div>
-            <div className="demo"></div>
-            <div className="demo"></div>
-            <div className="demo"></div>
-            <div className="demo"></div>
-            <div className="demo"></div>
-            <div className="demo"></div>
-            <div className="demo"></div>
-            <div className="demo"></div>
+            {Array(9).fill('').map((e, index)=>{
+                return <div key={index} className="demo"></div>
+            })}
         </div>
     )
 }
