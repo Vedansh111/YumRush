@@ -35,6 +35,7 @@ const Body = () => {
     }, []);
 
 
+
     const search = (
         <form>
             <label>Search for stuff</label>
@@ -45,30 +46,30 @@ const Body = () => {
                 value={searchText}
                 onChange={(e) => {
                     setSearchText(e.target.value);
-                    const dataSearced = filterdata(searchText, allres);
-                    // setFillRes(dataSearced);
-                    console.log(dataSearced);
+                    if (searchText === "") {
+                        setFillRes(allres);
+                    }
+                    const dataSearched = filterdata(searchText, allres);
+                    setFillRes(dataSearched);
                 }}
             />
             <button onClick={(e) => {
                 //filtering the data
                 e.preventDefault();
-                const dataSearced = filterdata(searchText, allres);
-                setFillRes(dataSearced);
+                const dataSearched = filterdata(searchText, allres);
+                setFillRes(dataSearched);
             }}>Go</button>
         </form>
     )
-
     return (allres.length === 0) ? <Shimmer /> : (
         <div>
             <div id='absolute'>{search}</div>
             <div className='manycards'>
                 {
-                    (searchText === "") ? allres.map(resturant => {
-                        return <CardComponent resturant={resturant} key={resturant.info.id} />
-                    }) : (fillres.length === 0) ? <h1>Oops!!!</h1> : fillres.map(resturant => {
-                        return (fillres.length === '[]') ? <h1>Oops!!</h1> : <CardComponent resturant={resturant} key={resturant.info.id} />
-                    })
+                    (fillres.length === 0) ? <h1>Oops...</h1> :
+                        fillres.map(resturant => {
+                            return <CardComponent resturant={resturant} key={resturant.info.id} />
+                        })
                 }
             </div>
         </div>

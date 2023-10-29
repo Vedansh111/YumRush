@@ -50,15 +50,16 @@ const appRouter = createBrowserRouter([
                 element:<Body/>
             },
             {
-                path:'/login',
-                element:<Login/>
-            },
-            {
                 path:'/about',
                 element:<About/>
             },
+            {
+                path:'/login',
+                element:<Login/>
+            },
+            
             // {
-            //     path:'/resturants/:id',
+            //     path:'resturants/:id',
             //     element:<ResturantMenu/>
             // },
             
