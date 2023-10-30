@@ -14,6 +14,7 @@ html, body {
     min-width: 190.5vh;
     min-height: 100vh;
     /* background-color: #57bd84; */
+    transition: .3s;
 }
 
 
@@ -38,13 +39,14 @@ a {
 }
 #title {
     font-weight: 750;
-    font-size: 24px; 
+    font-size: 25px; 
     margin: 0; /* Remove margin to align with the top */
 }
 .nav-items > ul {
     display: flex;
     list-style-type: none;
     font-weight: 400;
+    font-size: 18px;
     gap: 20px;
     margin: 0; /* Remove margin to align with the top */
 }
@@ -143,7 +145,8 @@ a {
     min-height: 73.5vh;
     max-width: 85%;
     margin: auto auto;
-    justify-content: center;
+    justify-content: center;    
+    transition: .3s;
     /* background-color: #00000090; */
 }
 
@@ -195,7 +198,6 @@ a {
     transform: scale(calc(1 + (var(--hover, 0) * 0.25))) rotate(calc(var(--hover, 0) * -5deg));
     transition: transform 0.2s;
 }
-
 
 #star {
     width: 14px;
@@ -285,18 +287,26 @@ footer > div > p {
     color: #000000;
 }
 
+
 /* resturat menu */
 .menu{
-    min-height: 93vh;
+    /* min-height: 93vh; */
     display: grid;
+    /* background-color: blueviolet; */
     place-items: center;
-    margin-top: 50px;
+    margin-top: 80px;
+}
+.container{
+    margin-top: 10px;
+    margin-left: 115px;
+    transition: .3s;
+    width: 85%;
 }
 .single_menu {
     /* background-color: #57bd84; */
-    width: 100%;
+    max-width: 90%;
     position: relative;
-    margin-bottom: 75px;
+    margin-bottom: 80px;
     transition: .3s;
 }
 .single_menu:hover img{
@@ -305,9 +315,9 @@ clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
 
 }
 .single_menu img {
-    width: 20%;
+    width: 210px;
     position: absolute;
-    height: 120px;
+    height: 100%;
     -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
     transition: .3s;
@@ -316,7 +326,7 @@ clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
     border-radius: 50px;
 }
 .menu_content {
-    padding-left: 220px;
+    padding-left: 230px;
 }
 .menu_content h4 {
     font-size: 25px;
@@ -333,14 +343,11 @@ clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
     color: #aa650c;
 }
 .menu_content p {
-    font-weight: 200;
+    padding-bottom: 5px;
+    font-weight: 290;
     font-size: 16px;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
 }
-#hide{
-    visibility: hidden;
-}
-
 /* Media queries for responsiveness */
 @media screen and (max-width: 765px) {
     /* Styles for screens with a maximum width of 768px */

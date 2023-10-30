@@ -68,8 +68,8 @@ const Body = () => {
             <div className='manycards'>
                 {
                     (fillres.length === 0) ? <h1>Oops...</h1> :
-                        fillres.map(resturant => {
-                            return <Link to={"/resturants/" + resturant.info?.id}><CardComponent resturant={resturant} key={resturant.info.id} /></Link>
+                        fillres.map(restaurant => {
+                            return <Link to={"restaurants/" + restaurant.info?.id}><CardComponent restaurant={restaurant} key={restaurant.info.id} /></Link>
                         })
                 }
             </div>

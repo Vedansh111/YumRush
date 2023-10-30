@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { image_url } from "../../config";
 
-const ResturantMenu = () => {
+const RestaurantMenu = () => {
     const { id } = useParams();
     const [menu, setMenu] = useState([]);
     const [name, setName] = useState([]);
@@ -28,8 +28,9 @@ const ResturantMenu = () => {
                         <div className="single_menu">
                             <img src={image_url + menuItem.card.info.imageId} alt="resturant img" />
                             <div className="menu_content">
-                                <h4>{menuItem.card.info.name}  <span>₹{menuItem.card.info.price.toString().slice(0, -2)}</span></h4>
-                                <p>⭐{menuItem.card.info.ratings.aggregatedRating.rating} {menuItem.card.info.description} <span id="hide">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus est ab </span></p>
+                                <h4>{menuItem.card.info.name}  <span>₹{String(menuItem.card.info.price).slice(0, -2)}</span></h4>
+                                <p>⭐{menuItem.card.info.ratings.aggregatedRating.rating}</p> 
+                                <p>{menuItem.card.info.description}</p>
                             </div>
                         </div>
                 </div>)}
@@ -41,4 +42,4 @@ const ResturantMenu = () => {
     )
 }
 
-export default ResturantMenu;   
+export default RestaurantMenu;   
