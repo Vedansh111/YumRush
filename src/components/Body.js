@@ -2,6 +2,7 @@ import CardComponent from './Card';
 import React, { useEffect } from 'react';
 import Shimmer from './Shimmer';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 // filtering out the search results..
 function filterdata(searchText, allres) {
@@ -68,7 +69,7 @@ const Body = () => {
                 {
                     (fillres.length === 0) ? <h1>Oops...</h1> :
                         fillres.map(resturant => {
-                            return <CardComponent resturant={resturant} key={resturant.info.id} />
+                            return <Link to={"/resturants/" + resturant.info?.id}><CardComponent resturant={resturant} key={resturant.info.id} /></Link>
                         })
                 }
             </div>

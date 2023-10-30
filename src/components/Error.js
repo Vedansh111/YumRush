@@ -3,7 +3,7 @@ const Error = ()=>{
     const err = useRouteError();
     console.log(err);
     return (
-        <div className="error">
+        <div id="error">
             <h2 id="error-msg">{err.status +" : " + err.statusText}</h2>
             <Link to='/' id='home-link'>Home</Link>
         </div>
