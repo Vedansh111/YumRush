@@ -1,4 +1,4 @@
-const CardComponent = ({restaurant}) => {
+const CardComponent = ({ restaurant }) => {
     const star = <img id="star" src='https://img.icons8.com/?size=1x&id=7856&format=png' alt='star'></img>
     return (
         <div className="cards">

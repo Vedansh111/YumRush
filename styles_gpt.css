@@ -342,6 +342,15 @@ clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
     font-style: italic;
     color: #aa650c;
 }
+.menu_content p span {
+    /* background-color: #2f2f2f; */
+    font-size: 20px;
+    font-weight: 800;
+    float: right;
+    border: 3px solid ;
+    border-radius: 10%;
+    color: #2aac1ed7;
+}
 .menu_content p {
     padding-bottom: 5px;
     font-weight: 290;
