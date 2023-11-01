@@ -320,6 +320,7 @@ clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
     width: 210px;
     position: absolute;
     height: 100%;
+    /* background-position: center; */
     -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
     transition: .3s;
@@ -381,7 +382,7 @@ clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
     padding-top: 30px;
     transition: .3s;
     animation: shimmer 3s infinite ;
-    background: linear-gradient(90deg, #b0aeae 25%, #b9b9b9 50%, #827e7e 75%);
+    background: linear-gradient(90deg, #b0aeae 25%, #b9b9b9 50%, #9f9f9f 75%);
     background-size: 200% 100%;
   }
   
