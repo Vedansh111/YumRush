@@ -1,39 +1,46 @@
 import React from 'react';
 
-class Profile extends React.Component{
+class Profile extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        console.log("constructor called");
+        console.log("Child Constructor");
 
         this.state = {
-            count: 0
+            name: "",
+            location: "",
+            img: ""
         }
     }
 
-    componentDidMount(){
-        console.log("componentDidMount");
+    async componentDidMount() {
+        const data = await fetch("https://api.github.com/users/Vedansh111");
+        const json = await data.json();
+        console.log(json);
+        // console.log(json.avatar_url);
+        this.setState({
+            name: json.login,
+            location: json.location,
+            img: json.avatar_url
+        })
     }
-    
+    componentWillUnmount(){
+        console.log("componentWillUnmount");
+    }
 
-    render(){
-        
-        console.log("render() called");
-        return(
+    render() {
+
+        console.log("Child Render");
+        return (
             <div>
-                <h2>Name: {this.props.name}</h2>
-                <h2>Salary: {this.props.salary}</h2>
-                <h3>{this.state.count}</h3>
-                <button onClick={()=>{
-                    this.setState({
-                        count: 1
-                    })
-                }}>C_Count</button>
+                <h2>Name: {this.state.name}</h2>
+                <img src={this.state.img} alt="avatar" />
+                <h2>Location: {this.state.location}</h2>
             </div>
         )
     }
 
-    
+
 }
 
 export default Profile;

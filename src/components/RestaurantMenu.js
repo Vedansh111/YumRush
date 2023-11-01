@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { image_url } from "../../config";
 import { Link } from "react-router-dom";
+import ShimmerMenu from "./ShimmerMenu";
 
 const RestaurantMenu = () => {
     const { id } = useParams();
@@ -26,14 +27,14 @@ const RestaurantMenu = () => {
 
         (id != 237666 || id != 167782) ? setMenu(json.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards) : setMenu(json.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards)
 
-        // console.log(Object.values(menu));
+        console.log(Object.values(menu).length);
     }
 
     useEffect(() => {
         getMenu();
     }, [])
 
-    return (
+    return (Object.values(menu).length === 0 ) ? <ShimmerMenu/> :(
         <div className="menu">
             <h1>{name.name}</h1>
             <div className="container">

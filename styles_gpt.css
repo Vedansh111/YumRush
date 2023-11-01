@@ -270,17 +270,19 @@ footer > div > p {
 
 /* login */
 .login-page {
+    margin-top: 60px;
     width: 100%;
     min-height: 93vh;
     display: grid;
     place-items: center;
-    /* background: #9c4444; */
+    background: #9c4444;
 }
 
 
 /* about */
 .about-page {
-    /* background: #9c4444; */
+    margin-top: 60px;
+    /* background: #9c4444;  */
     min-height: 93vh;
     display: grid;
     place-items: center;
@@ -357,6 +359,34 @@ clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
     font-size: 16px;
     letter-spacing: 1.2px;
 }
+
+
+/* shimmer effect of resturant */
+@keyframes shimmer {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  /* Apply shimmer animation to .single_menu elements */
+  .single_menu-shimmer {
+    margin-top: 90px;
+    max-width: 90%;
+    height: 95px;
+    position: relative;
+    margin-bottom: 85px;
+    padding-top: 30px;
+    transition: .3s;
+    animation: shimmer 3s infinite ;
+    background: linear-gradient(90deg, #b0aeae 25%, #b9b9b9 50%, #827e7e 75%);
+    background-size: 200% 100%;
+  }
+  
+
+
 /* Media queries for responsiveness */
 @media screen and (max-width: 765px) {
     /* Styles for screens with a maximum width of 768px */
