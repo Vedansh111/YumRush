@@ -18,7 +18,6 @@ const Body = () => {
     const [allres, setAllRes] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [fillres, setFillRes] = useState([]);
-
     async function getResturants() {
 
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.290785&lng=70.8020035&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
@@ -54,7 +53,7 @@ const Body = () => {
                     setFillRes(dataSearched);
                 }}
             />
-            <button onClick={(e) => {
+            <button className='search-btn' onClick={(e) => {
                 //filtering the data
                 e.preventDefault();
                 const dataSearched = filterdata(searchText, allres);
@@ -69,7 +68,7 @@ const Body = () => {
                 {
                     (fillres.length === 0) ? <h1>Oops...</h1> :
                         fillres.map(restaurant => {
-                            return <Link to={"restaurants/" + restaurant.info?.id}><CardComponent restaurant={restaurant} key={restaurant.info.id} /></Link>
+                            return <Link to={"restaurants/" + restaurant.info?.id} key={restaurant.info?.id}><CardComponent restaurant={restaurant} key={ restaurant.info?.id } /></Link>
                         })
                 }
             </div>

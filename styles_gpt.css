@@ -84,7 +84,7 @@ a {
     border-radius: var(--rad);
   
   }
-  input, button {
+  input, .search-btn {
     height: var(--height);
     font-family: var(--font-fam);
     border: 0;
@@ -103,7 +103,7 @@ a {
     z-index: 1;
     position: relative;
   }
-  button {
+  .search-btn {
     display: none; 
     position: absolute;
     top: 0;
