@@ -48,7 +48,6 @@ class Profile extends React.Component {
             <div>
                 <h2>Github: {this.state.name}</h2>
                 <img src={this.state.img} alt="avatar" />
-                <h2>asdf</h2>
                 <h2>Location: {this.state.location}</h2>
             </div>
         )
