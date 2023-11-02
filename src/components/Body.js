@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 // filtering out the search results..
 function filterdata(searchText, allres) {
-    return allres.filter((s) => {
-        return s.info?.name.toLowerCase().includes(searchText.toLowerCase()) || s.info?.cuisines.join("").toLowerCase().includes(searchText);
+    return allres?.filter((s) => {
+        return s.info?.name?.toLowerCase().includes(searchText.toLowerCase()) || s.info?.cuisines.join("").toLowerCase().includes(searchText);
 
     })
 
@@ -18,16 +18,27 @@ const Body = () => {
     const [allres, setAllRes] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [fillres, setFillRes] = useState([]);
+    const [lat, setLat] = useState(22.2904);
+    const [lon, setLon] = useState(70.7915);
+
+
     async function getResturants() {
 
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.290785&lng=70.8020035&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+        navigator.geolocation.getCurrentPosition((data1) => {
+            setLat(data1.coords.latitude);
+            setLon(data1.coords.longitude);
+            console.log(lat, lon);
+        })
+        
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat="+lat+"&lng="+lon+"&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
 
         const data2 = await data.json();
         // Filtered Resturants..
-        setFillRes(data2.data?.cards[5].card?.card?.gridElements?.infoWithStyle.restaurants);
+        setFillRes(data2.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle.restaurants);
 
         // All the restaurants..
-        setAllRes(data2.data?.cards[5].card?.card?.gridElements?.infoWithStyle.restaurants);
+        setAllRes(data2.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle.restaurants);
+        
     }
 
     useEffect(() => {
@@ -61,14 +72,14 @@ const Body = () => {
             }}>Go</button>
         </form>
     )
-    return (allres.length === 0) ? <Shimmer /> : (
+    return (allres?.length === 0 || lat === 0) ? <Shimmer /> : (
         <div>
             <div id='absolute'>{search}</div>
             <div className='manycards'>
                 {
-                    (fillres.length === 0) ? <h1>Oops...</h1> :
-                        fillres.map(restaurant => {
-                            return <Link to={"restaurants/" + restaurant.info?.id} key={restaurant.info?.id}><CardComponent restaurant={restaurant} key={ restaurant.info?.id } /></Link>
+                    (fillres?.length === 0) ? <h1>Oops...</h1> :
+                        fillres?.map(restaurant => {
+                            return <Link to={"restaurants/" + restaurant?.info?.id} key={restaurant?.info?.id}><CardComponent restaurant={ restaurant} key={ restaurant.info?.id } /></Link>
                         })
                 }
             </div>

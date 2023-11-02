@@ -6,7 +6,7 @@ const ShimmerMenu = () => {
 
                 {Array(9).fill('').map((e, index) => {
                     return (
-                        <div className="single_menu-shimmer">
+                        <div key={index} className="single_menu-shimmer">
                             <img />
                             <div className="menu_content-shimmer">
                                 <h4><span></span></h4>
