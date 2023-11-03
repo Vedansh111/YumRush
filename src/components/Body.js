@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Shimmer from './Shimmer';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import useLocation from '../utils/useLocation';
 
 // filtering out the search results..
 function filterdata(searchText, allres) {
@@ -13,22 +14,13 @@ function filterdata(searchText, allres) {
 
 }
 
-
 const Body = () => {
     const [allres, setAllRes] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [fillres, setFillRes] = useState([]);
-    const [lat, setLat] = useState(22.2904);
-    const [lon, setLon] = useState(70.7915);
-
-
+    const [lat, lon] = useLocation();
+    
     async function getResturants() {
-
-        navigator.geolocation.getCurrentPosition((data1) => {
-            setLat(data1.coords.latitude);
-            setLon(data1.coords.longitude);
-            console.log(lat, lon);
-        })
         
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat="+lat+"&lng="+lon+"&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
 
@@ -43,7 +35,7 @@ const Body = () => {
 
     useEffect(() => {
         getResturants();
-    }, []);
+    }, [lat, lon]);
 
 
 
@@ -71,8 +63,9 @@ const Body = () => {
                 setFillRes(dataSearched);
             }}>Go</button>
         </form>
+
     )
-    return (allres?.length === 0 || lat === 0) ? <Shimmer /> : (
+    return (allres?.length === 0 || !fillres) ? <Shimmer /> : (
         <div>
             <div id='absolute'>{search}</div>
             <div className='manycards'>
