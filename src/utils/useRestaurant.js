@@ -20,7 +20,7 @@ const useResturantMenu = (id) => {
         const json = await data.json();
 
         setName(json.data?.cards[0].card?.card?.info);
-        (id != 237666 || id != 167782) ? setMenu(json.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards) : setMenu(json.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards)
+        (id != 237666 || id != 167782 ) ? setMenu(json.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards) : setMenu(json.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards)
     }
 
     return [menu, name];

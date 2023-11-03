@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import useLocation from '../utils/useLocation';
 import useGetRestaurant from '../utils/useGetRestaurant';
 import { filterdata } from '../utils/helper';
-// filtering out the search results..
+import useOnline from '../utils/useOnline';
 
 
 const Body = () => {
@@ -14,7 +14,7 @@ const Body = () => {
     const [searchText, setSearchText] = useState("");
     const [lat, lon] = useLocation();
     const [allres, fillres, setFillRes] = useGetRestaurant(lat, lon);
-
+    const isOnline = useOnline();
     const search = (
         <form>
             <label>Search for stuff</label>
@@ -42,6 +42,10 @@ const Body = () => {
 
     )
 
+    if (!isOnline){
+        return <h1 className='online-user
+        '>🛑 No Internet Connection 🛑 </h1>
+    }
     return (allres?.length === 0 || !fillres) ? <Shimmer /> : (
         <div>
             <div id='absolute'>{search}</div>

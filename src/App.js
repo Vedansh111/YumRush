@@ -30,8 +30,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 
 // App Layout----------
 const AppLayout = () => {
-    
-    return (
+    return(
         <>
             <Header />
             <Outlet />
@@ -67,7 +66,7 @@ const appRouter = createBrowserRouter([
             
             {
                 path:'restaurants/:id',
-                element:<RestaurantMenu/>
+                element:<RestaurantMenu/>   
             },
             
         ]
