@@ -145,7 +145,8 @@ a {
     min-height: 73.5vh;
     max-width: 85%;
     margin: auto auto;
-    justify-content: center;    
+    justify-content: center;
+  
     transition: .3s;
     /* background-color: #00000090; */
 }
@@ -156,7 +157,9 @@ a {
     height: 300px;
     margin: 10px 12px;
     text-align: center;
-    padding: 12px;
+    display: grid;
+    place-items: center;
+    padding: 5px;
     /* background: #fffbf82d; */
     /* border: .5px #fcf9f5b4; */
     border-radius: 8px; /* Round the corners of the cards. */
