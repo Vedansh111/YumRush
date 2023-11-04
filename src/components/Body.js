@@ -43,8 +43,8 @@ const Body = () => {
     )
 
     if (!isOnline){
-        return <h1 className='online-user
-        '>🛑 No Internet Connection 🛑 </h1>
+        return <h1 className='online-user'>
+            🛑 No Internet Connection 🛑</h1>
     }
     return (allres?.length === 0 || !fillres) ? <Shimmer /> : (
         <div>

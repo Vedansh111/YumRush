@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useEffect, useState } from "react";
 
 const useLocation = () => {
     const [lat, setLat] = useState(0);
@@ -8,6 +8,7 @@ const useLocation = () => {
         setLat(data.coords.latitude);
         setLon(data.coords.longitude);
     })
+
 
     return [lat, lon];
 }

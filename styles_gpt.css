@@ -396,7 +396,12 @@ clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
     background-size: 200% 100%;
   }
   
-
+.cart{
+    display: grid;
+    place-items: center;
+    margin-top: 80px;
+    min-height: 80vh;
+}
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 765px) {
