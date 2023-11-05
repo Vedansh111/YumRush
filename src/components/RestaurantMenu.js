@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { image_url } from "../../config";
+import { image_url } from "../config";
 import { Link } from "react-router-dom";
 import ShimmerMenu from "./ShimmerMenu";
 import useRestaurant from "../utils/useRestaurant";

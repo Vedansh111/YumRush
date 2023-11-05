@@ -18,7 +18,7 @@ const Body = () => {
     const search = (
         <form>
             <label>Search for stuff</label>
-            <input id="search"
+            <input className="bg-black hover:bg-fuchsia-200"
                 type="search"
                 autoComplete='off'
                 placeholder="Search..."
@@ -49,7 +49,7 @@ const Body = () => {
     return (allres?.length === 0 || !fillres) ? <Shimmer /> : (
         <div>
             <div id='absolute'>{search}</div>
-            <div className='manycards'>
+            <div className='flex flex-wrap p-7 font-bold'>
                 {
                     (fillres?.length === 0) ? <h1>Oops...</h1> :
                         fillres?.map(restaurant => {
