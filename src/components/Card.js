@@ -17,17 +17,11 @@ const CardComponent = ({ restaurant }) => {
                                 <span>{restaurant.info?.avgRating}  |  {restaurant.info?.sla?.deliveryTime}mins</span>
                             </div>
                             <div className="flex items-center w-full justify-between min-w-0 ">
-                                <h1 className="text-xl font-medium mr-auto mt-2 text-black ">{restaurant.info?.name}</h1>
-                                <div className="flex items-center bg-green-500 text-white text-sm px-2 py-1 ml-3 rounded-lg">
+                                <h1 className="text-xl font-medium mr-auto mt-1 text-black ">{restaurant.info?.name}</h1>
+                                <div className=" bg-green-500 text-white text-sm px-2 py-1 ml-3 rounded-lg">
                                     {restaurant.info?.costForTwo}</div>
                             </div>
                             <div className="text-medium text-gray-500 font-semibold mt-1">{restaurant.info?.cuisines.join(", ")}</div>
-                        </div>
-
-                        <div className="text-sm font-medium justify-start py-3 ml-1">
-                            <button className="transition ease-in duration-300 inline-flex items-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600 ">
-                                <span>Add Cart</span>
-                            </button>
                         </div>
                         
                     </div>

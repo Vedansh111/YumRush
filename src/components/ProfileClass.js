@@ -43,12 +43,11 @@ class Profile extends React.Component {
 
     render() {
 
-        console.log("Child Render");
         return (
-            <div>
-                <h2>Github: {this.state.name}</h2>
-                <img src={this.state.img} alt="avatar" />
-                <h2>Location: {this.state.location}</h2>
+            <div className='my-11'>
+                <h2 className='text-2xl font-normal py-2'>Github: {this.state.name}</h2>
+                <img className='mx-auto py-2 rounded-xl shadow-lg' src={this.state.img} alt="avatar" />
+                <h2 className='py-2 text-2xl'>Location: {this.state.location}</h2>
             </div>
         )
     }

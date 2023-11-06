@@ -6,7 +6,7 @@ const Header = () => {
     const title = <Link href='/'><h1 className="font-extrabold text-3xl">YumRush</h1></Link>;
 
     return (
-        <div className='header sticky top-0 bg-white bg-opacity-80 shadow-md flex items-center justify-between px-8'>
+        <div className='header sticky top-0 bg-white bg-opacity-80 shadow-md flex items-center justify-between px-8 z-10'>
             {title}
             <nav>
                 <ul className="flex items-center text-xl text-gray-600">
