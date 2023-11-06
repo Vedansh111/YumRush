@@ -10,6 +10,7 @@
   "author": "Vedansh Taraviya",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.23.2",
     "autoprefixer": "^10.4.16",
     "parcel": "^2.10.0",
     "postcss": "^8.4.31",
@@ -19,6 +20,10 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.17.0"
-  }
+    "react-router-dom": "^6.17.0",
+    "react-scripts": "^5.0.1"
+  },
+  "browserlists": [
+    "last 2 versions"
+  ]
 }

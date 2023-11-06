@@ -1,5 +1,5 @@
 import CardComponent from './Card';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Shimmer from './Shimmer';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -18,7 +18,7 @@ const Body = () => {
     const search = (
         <form>
             <label>Search for stuff</label>
-            <input className="bg-black hover:bg-fuchsia-200"
+            <input className=" hover:bg-fuchsia-200" 
                 type="search"
                 autoComplete='off'
                 placeholder="Search..."
@@ -48,8 +48,8 @@ const Body = () => {
     }
     return (allres?.length === 0 || !fillres) ? <Shimmer /> : (
         <div>
-            <div id='absolute'>{search}</div>
-            <div className='flex flex-wrap p-7 font-bold'>
+            <div className=''>{search}</div>
+            <div className='flex flex-wrap p-3 '>
                 {
                     (fillres?.length === 0) ? <h1>Oops...</h1> :
                         fillres?.map(restaurant => {
