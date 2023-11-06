@@ -18,7 +18,7 @@ const Body = () => {
     const search = (
         <form>
             <label>Search for stuff</label>
-            <input className=" hover:bg-fuchsia-200" 
+            <input className=" hover:bg-fuchsia-200"
                 type="search"
                 autoComplete='off'
                 placeholder="Search..."
@@ -42,20 +42,20 @@ const Body = () => {
 
     )
 
-    if (!isOnline){
+    if (!isOnline) {
         return <h1 className='online-user'>
             🛑 No Internet Connection 🛑</h1>
     }
     return (allres?.length === 0 || !fillres) ? <Shimmer /> : (
         <div>
             <div className=''>{search}</div>
-            <div className='flex flex-wrap p-3 '>
-                {
-                    (fillres?.length === 0) ? <h1>Oops...</h1> :
-                        fillres?.map(restaurant => {
-                            return <Link to={"restaurants/" + restaurant?.info?.id} key={restaurant?.info?.id}><CardComponent restaurant={restaurant} key={restaurant.info?.id} /></Link>
-                        })
-                }
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
+                    {
+                        (fillres?.length === 0) ? <h1>Oops...</h1> :
+                            fillres?.map(restaurant => {
+                                return <Link to={"restaurants/" + restaurant?.info?.id} key={restaurant?.info?.id}><CardComponent restaurant={restaurant} key={restaurant.info?.id} /></Link>
+                            })
+                    }
             </div>
         </div>
     )
