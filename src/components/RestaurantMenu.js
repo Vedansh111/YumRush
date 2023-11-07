@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { image_url } from "../config";
-import { Link } from "react-router-dom";
 import ShimmerMenu from "./ShimmerMenu";
 import useRestaurant from "../utils/useRestaurant";
 
@@ -11,12 +10,12 @@ const RestaurantMenu = () => {
     const [menu, name] = useRestaurant(id);
 
     return (Object.values(menu).length === 0) ? <ShimmerMenu /> : (
-        <div className="menu">
+        <div>
             <h1 className="flex tracking-tighter font-middle text-3xl shadow-xl rounded-xl w-fit mx-auto my-4 py-3 px-5">{name.name}</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mx-5">
                 {Object.values(menu).map((menuItem) =>
                     <div className="transition-transform duration-500 transform ease-in-out hover:scale-105 w-full">
-                        <div className="py-5 px-2">
+                        <div className="py-4 px-3">
                             <div className="max-w-sm w-full border bg-slate-50 shadow-lg rounded-xl p-6">
                                 <div className="flex-col">
 

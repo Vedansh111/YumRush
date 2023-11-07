@@ -6,7 +6,7 @@ const CardComponent = ({ restaurant }) => {
                     <div className="flex-col">
 
                         <div className="h-62 w-full mb-3">
-                            <img src={'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_300,q_300,w_300,h_300/' + restaurant.info?.cloudinaryImageId} alt="food photos" className=" w-full   object-fill  rounded-2xl" />
+                            <img src={'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_300,q_300,w_300,h_300/' + restaurant.info?.cloudinaryImageId} alt="food photos" className=" w-full object-fill rounded-2xl" />
                         </div>
 
                         <div className="m-2">
