@@ -28,8 +28,7 @@ class AboutClassComponent extends React.Component {
     render() {
         // console.log("Parent Render");
         return (
-            <div className="justify-center text-center h-full my-5">
-                <h1 className="font-bold text-4xl">About page</h1>
+            <div className="justify-center text-center">
                 <ProfileClass name={"Vedansh"} />
             </div>
         )

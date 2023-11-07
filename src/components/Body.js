@@ -16,7 +16,7 @@ const Body = () => {
     const [allres, fillres, setFillRes] = useGetRestaurant(lat, lon);
     const isOnline = useOnline();
     const search = (
-        <form>
+        <form id='Waah'>
             <input className="bg-white border font-normal min-w-full border-gray-100 shadow-lg h-10 px-5 py-6 pr-10 rounded-full text-lg focus:outline-none"
                 type="search"
                 autoComplete='off'
