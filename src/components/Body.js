@@ -17,8 +17,7 @@ const Body = () => {
     const isOnline = useOnline();
     const search = (
         <form>
-            <label>Search for stuff</label>
-            <input className=" hover:bg-fuchsia-200"
+            <input className="bg-white border font-normal min-w-full border-gray-100 shadow-lg h-10 px-5 py-6 pr-10 rounded-full text-lg focus:outline-none"
                 type="search"
                 autoComplete='off'
                 placeholder="Search..."
@@ -32,30 +31,30 @@ const Body = () => {
                     setFillRes(dataSearched);
                 }}
             />
-            <button className='search-btn' onClick={(e) => {
+            <button onClick={(e) => {
                 //filtering the data
                 e.preventDefault();
                 const dataSearched = filterdata(searchText, allres);
                 setFillRes(dataSearched);
-            }}>Go</button>
+            }}></button>
         </form>
 
     )
 
     if (!isOnline) {
-        return <h1 className='online-user'>
+        return <h1 className='w-fit text-3xl font-semibold mx-auto text-center my-[16.6rem]'>
             🛑 No Internet Connection 🛑</h1>
     }
     return (allres?.length === 0 || !fillres) ? <Shimmer /> : (
         <div>
-            <div className=''>{search}</div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 my-2'>
-                    {
-                        (fillres?.length === 0) ? <h1>Oops...</h1> :
-                            fillres?.map(restaurant => {
-                                return <Link to={"restaurants/" + restaurant?.info?.id} key={restaurant?.info?.id}><CardComponent restaurant={restaurant} key={restaurant.info?.id} /></Link>
-                            })
-                    }
+            <div className=' text-gray-600 w-fit mx-auto my-7'>{search}</div>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mx-5'>
+                {
+                    (fillres?.length === 0) ? <h1 className=' text-3xl font-semibold mx-[45rem] my-[13rem]'>Oops...</h1> :
+                        fillres?.map(restaurant => {
+                            return <Link to={"restaurants/" + restaurant?.info?.id} key={restaurant?.info?.id}><CardComponent restaurant={restaurant} key={restaurant.info?.id} /></Link>
+                        })
+                }
             </div>
         </div>
     )

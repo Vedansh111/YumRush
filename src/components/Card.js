@@ -1,7 +1,7 @@
 const CardComponent = ({ restaurant }) => {
     return (
         <div className="transition-transform duration-500 transform ease-in-out hover:scale-105 w-full">
-            <div className="py-5 px-2">
+            <div className="py-4 px-3">
                 <div className="max-w-md w-full border bg-slate-50 shadow-lg rounded-xl p-6">
                     <div className="flex-col">
 
