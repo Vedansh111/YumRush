@@ -20,7 +20,7 @@ const useResturantMenu = (id) => {
         const json = await data.json();
         console.log(json);
         async function checkJsonData(jsonData) {
-            for (let i = 0; i < jsonData?.data?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards.length ; i++) {
+            for (let i = 0; i < jsonData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.length ; i++) {
 
                 // initialize checkData for Swiggy Restaurant data
                 let checkData = json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[i]?.card?.card?.itemCards;

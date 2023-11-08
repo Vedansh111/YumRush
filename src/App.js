@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState, createContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
 import Body from './components/Body';
@@ -9,7 +9,6 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import RestaurantMenu from './components/RestaurantMenu';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-
 /*
     Header
      - Name(Home)
@@ -31,6 +30,13 @@ const Cart = lazy(() => import('./components/CartComponent'));
 
 // App Layout----------
 const AppLayout = () => {
+    const [user, setUser] = useState(
+        userInfo = {
+            name: 'user',
+            email: 'user@example.com'
+        }
+    )
+    
     return (
         <>
             <Header />
