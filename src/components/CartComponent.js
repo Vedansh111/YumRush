@@ -33,6 +33,7 @@ const Section = ({ name, description, isVisible, setIsVisible }) => {
 
 
 const CartComponent = () => {
+    
     const [secConfig, setSecConfig] = useState(null);
     return (
         <>
