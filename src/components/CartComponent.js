@@ -24,6 +24,7 @@ const Section = ({ name, description, isVisible, setIsVisible }) => {
                 </button>
             )}
 
+
             {isVisible && <p className="text-base p-2.5">{description}</p>
             }
 
