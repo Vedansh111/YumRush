@@ -8,7 +8,9 @@ import About from './components/About';
 import Login from './components/Login';
 import Profile from './components/Profile';
 import RestaurantMenu from './components/RestaurantMenu';
+import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import store from './utils/store';
 /*
     Header
      - Name(Home)
@@ -36,12 +38,15 @@ const AppLayout = () => {
             email: 'user@example.com'
         }
     )
-    
+
+
     return (
         <>
-            <Header />
-            <Outlet />
-            <Footer />
+            <Provider store = {store}>
+                <Header />
+                <Outlet />
+                <Footer />
+            </Provider>
         </>
     )
 }
