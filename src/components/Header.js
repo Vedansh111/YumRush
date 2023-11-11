@@ -1,8 +1,9 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = () => {
     const title = <Link href='/'><h1 className="font-extrabold text-3xl">YumRush</h1></Link>;
-
+    const cartItems = useSelector(store => store.cart.items);
     return (
         <div className='header sticky top-0 bg-white bg-opacity-80 shadow-md flex items-center justify-between px-8 z-10'>
             {title}
@@ -16,6 +17,7 @@ const Header = () => {
                         </svg>
                     </Link>
                     </li>
+                    <li className="text-sm mt-5"><p>{(cartItems.length === 0)? "" : cartItems.length}</p></li>
                 </ul>
             </nav>
         </div>
