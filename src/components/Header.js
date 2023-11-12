@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
     const title = <Link href='/'><h1 className="font-extrabold text-3xl">YumRush</h1></Link>;
     const cartItems = useSelector(store => store.cart.items);
+    console.log(cartItems);
     return (
         <div className='header sticky top-0 bg-white bg-opacity-80 shadow-md flex items-center justify-between px-8 z-10'>
             {title}
