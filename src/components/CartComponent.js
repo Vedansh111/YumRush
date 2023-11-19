@@ -13,7 +13,8 @@ const CartComponent = () => {
     const emptyCart = () =>{
         dispatch(clearCart(cartItems));
     }
-    console.log(Object.values(cartItems));
+    // console.log(Object.values(cartItems));
+    
     return (
         <>
             <div className="container mx-auto mt-10 px-4">
@@ -106,5 +107,4 @@ const CartComponent = () => {
         </>
     )
 }
-
 export default CartComponent;
