@@ -1,7 +1,7 @@
 const Shimmer = () => {
     return (
         <div>
-            <div className='w-fit mx-auto my-7'><input className="bg-white border font-normal min-w-full border-gray-100 shadow-lg animate-pulse h-10 px-5 py-6 pr-10 rounded-full text-lg" placeholder="Search..."/></div>
+            <div className='w-fit mx-auto my-7'><input className="bg-white border font-normal min-w-full border-gray-100 shadow-lg animate-pulse h-10 px-5 py-6 pr-10 rounded-md text-lg" placeholder="Search..."/></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mx-5">
                 {Array(16).fill('').map((e, index) => {
                     return <div key={index}>
