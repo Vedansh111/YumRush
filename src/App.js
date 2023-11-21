@@ -1,6 +1,5 @@
-import React, { lazy, Suspense, useState, createContext } from 'react';
+import React, { lazy, Suspense, useState} from 'react';
 import ReactDOM from 'react-dom/client';
-
 import Header from './components/Header';
 import Body from './components/Body';
 import Footer from './components/Footer';
@@ -29,18 +28,10 @@ import store from './utils/store';
      - Copyright
 */
 
-const Cart = lazy(() => import('./components/CartComponent'));
+const Login = lazy(() => import('./components/CartComponent')); 
 
 // App Layout----------
 const AppLayout = () => {
-    const [user, setUser] = useState(
-        userInfo = {
-            name: 'user',
-            email: 'user@example.com'
-        }
-    )
-
-
     return (
         <>
             <Provider store = {store}>
