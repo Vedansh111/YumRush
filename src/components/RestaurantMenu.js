@@ -13,7 +13,7 @@ const RestaurantMenu = () => {
     const handleAddItem = (item) => {
         dispatch(addItem(item))
     }
-
+    
     return (Object.values(menu).length === 0) ? <ShimmerMenu /> : (
         <div>
             <h1 className="flex tracking-tighter font-middle text-3xl shadow-xl rounded-xl w-fit mx-auto my-4 py-3 px-5">{name.name}</h1>

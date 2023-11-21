@@ -12,7 +12,7 @@ class Profile extends React.Component {
             img: "",
             isVisible: false,
         }
-        console.log(this.state.isVisible);
+        // console.log(this.state.isVisible);
     }
 
 

@@ -1,16 +1,16 @@
-import React, { lazy, Suspense, useState} from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
 import Body from './components/Body';
 import Footer from './components/Footer';
 import Error from './components/Error';
 import About from './components/About';
-import Login from './components/Login';
 import Profile from './components/Profile';
 import RestaurantMenu from './components/RestaurantMenu';
 import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import store from './utils/store';
+import CartComponent from './components/CartComponent';
 /*
     Header
      - Name(Home)
@@ -28,16 +28,16 @@ import store from './utils/store';
      - Copyright
 */
 
-const Login = lazy(() => import('./components/CartComponent')); 
+const Login = lazy(() => import('./components/Login'));
 
 // App Layout----------
 const AppLayout = () => {
     return (
         <>
-            <Provider store = {store}>
-                <Header />
-                <Outlet />
-                <Footer />
+            <Provider store={store}>
+                    <Header />
+                    <Outlet />
+                    <Footer />
             </Provider>
         </>
     )
@@ -65,7 +65,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: '/login',
-                element: <Login />
+                element: <Suspense><Login /></Suspense>
             },
 
             {
@@ -75,7 +75,7 @@ const appRouter = createBrowserRouter([
 
             {
                 path: '/cart',
-                element: <Suspense><Cart /></Suspense>
+                element: <CartComponent />
             }
         ]
     },

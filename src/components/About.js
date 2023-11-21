@@ -1,5 +1,4 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 import ProfileClass from './ProfileClass';
 import ProfileFunction from './Profile';
 
