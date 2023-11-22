@@ -1,31 +1,38 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { image_url } from "../config";
-import { removeItem, clearCart } from "../utils/cartSlice";
+import { addItem, decreamentItem, clearCart } from "../utils/cartSlice";
 
 const CartComponent = () => {
 
     const cartItems = useSelector(store => store.cart.items);
     const dispatch = useDispatch();
-    const handleRemoveItem = () => {
-        dispatch(removeItem(cartItems));
-    }
-    const emptyCart = () =>{
+    const handleAddFoodItem = (item) => {
+        dispatch(addItem(item));
+    };
+    const handleDecreamentFoodItem = (item) => {
+        dispatch(decreamentItem(item));
+    };
+    const emptyCart = () => {
         dispatch(clearCart(cartItems));
     }
+    const getItemCount = (item) => {
+        const currentItem = cartItems.find((cartItem) => item.id === cartItem.id);
+        return currentItem ? currentItem.quantity : 0;
+      };
     // console.log(Object.values(cartItems));
-    
+
     return (
         <>
             <div className="container mx-auto mt-10 px-4">
                 <div className="flex shadow-lg mt-9">
                     <div className="w-3/4 bg-white px-10 py-10">
-        
+
                         <div className="flex justify-between border-b pb-8">
                             <h1 className="font-semibold text-2xl">Shopping Cart</h1>
                             <h2 className="font-semibold text-2xl">{cartItems.length} Items</h2>
                         </div>
-    
+
                         <div className="flex mt-10 mb-5 text-sm">
                             <h3 className="font-semibold text-gray-600 uppercase w-2/5">Food Details</h3>
                             <h3 className="font-semibold text-gray-600 uppercase w-1/5 text-center">Quantity</h3>
@@ -45,7 +52,7 @@ const CartComponent = () => {
                                         </div>
                                     </div>
                                     <div className="flex justify-center w-1/5">
-                                        <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                                        {/* <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                                         </svg>
 
                                         <input className="mx-2 border text-center w-8" type="text" value={items.card?.info?.name.length} onChange={(e) => {
@@ -54,10 +61,16 @@ const CartComponent = () => {
 
                                         <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
                                             <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                                        </svg>
+                                        </svg> */}
+
+                                        <button onClick={() => handleDecreamentFoodItem(items)}>
+                                            -
+                                        </button>
+                                        <span>{getItemCount(items)}</span>
+                                        <button onClick={() => handleAddFoodItem(items)}>+</button>
                                     </div>
-                                    <span className="text-center w-1/5 font-semibold text-sm">₹{((String(items.card?.info?.price)==="undefined")? "₹₹" : String(items.card?.info?.price).slice(0, -2) )}</span>
-                                    <span className="text-center w-1/5 font-semibold text-sm">₹{((String(items.card?.info?.price)==="undefined")? "₹₹" : String(items.card?.info?.price).slice(0, -2) )}</span>
+                                    <span className="text-center w-1/5 font-semibold text-sm">₹{((String(items.card?.info?.price) === "undefined") ? "₹₹" : String(items.card?.info?.price).slice(0, -2))}</span>
+                                    <span className="text-center w-1/5 font-semibold text-sm">₹{((String(items.card?.info?.price) === "undefined") ? "₹₹" : String(items.card?.info?.price).slice(0, -2))}</span>
                                 </div>
 
                             )
@@ -101,7 +114,7 @@ const CartComponent = () => {
 
                 </div>
                 <div className="flex mb-9">
-                    <button onClick={()=>emptyCart()} className=" hover:bg-red-500 px-2 py-2 text-sm rounded-md uppercase">Clear Cart</button>
+                    <button onClick={() => emptyCart()} className=" hover:bg-red-500 px-2 py-2 text-sm rounded-md uppercase">Clear Cart</button>
                 </div>
             </div>
         </>

@@ -13,13 +13,13 @@ const RestaurantMenu = () => {
     const handleAddItem = (item) => {
         dispatch(addItem(item))
     }
-    
+
     return (Object.values(menu).length === 0) ? <ShimmerMenu /> : (
         <div>
             <h1 className="flex tracking-tighter font-middle text-3xl shadow-xl rounded-xl w-fit mx-auto my-4 py-3 px-5">{name.name}</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mx-5">
-                {Object.values(menu).map((menuItem, index) =>
-                    <div className="transition-transform duration-500 transform ease-in-out hover:scale-105 w-full" key={index}>
+                {Object.values(menu).map((menuItem) =>
+                    <div className="transition-transform duration-500 transform ease-in-out hover:scale-105 w-full" key={menuItem.card?.info?.id}>
                         <div className="py-4 px-3">
                             <div className="max-w-sm w-full border bg-slate-50 shadow-lg rounded-xl p-6">
                                 <div className="flex-col">
