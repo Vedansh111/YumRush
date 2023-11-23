@@ -1,25 +1,31 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { image_url } from "../config";
-import { addItem, decreamentItem, clearCart } from "../utils/cartSlice";
+import { addItem, decreamentItem, clearCart, removeItem } from "../utils/cartSlice";
 
 const CartComponent = () => {
 
     const cartItems = useSelector(store => store.cart.items);
+    console.log(cartItems);
     const dispatch = useDispatch();
     const handleAddFoodItem = (item) => {
         dispatch(addItem(item));
+
     };
     const handleDecreamentFoodItem = (item) => {
         dispatch(decreamentItem(item));
+    };
+    const handleRemoveItem = (item) => {
+        dispatch(removeItem(item));
     };
     const emptyCart = () => {
         dispatch(clearCart(cartItems));
     }
     const getItemCount = (item) => {
         const currentItem = cartItems.find((cartItem) => item.id === cartItem.id);
+        console.log(currentItem);
         return currentItem ? currentItem.quantity : 0;
-      };
+    };
     // console.log(Object.values(cartItems));
 
     return (
@@ -39,9 +45,9 @@ const CartComponent = () => {
                             <h3 className="font-semibold text-gray-600 uppercase w-1/5 text-center">Price</h3>
                             <h3 className="font-semibold text-gray-600 uppercase w-1/5 text-center">Total</h3>
                         </div>
-                        {Object.values(cartItems).map((items) => {
+                        {Object.values(cartItems).map((items, index) => {
                             return (
-                                <div key={items.card?.info?.id} className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+                                <div key={index} className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
                                     <div className="flex w-2/5">
                                         <div className="w-20">
                                             <img className="h-24 rounded-md" src={image_url + items.card?.info?.imageId} alt="" />
@@ -52,25 +58,14 @@ const CartComponent = () => {
                                         </div>
                                     </div>
                                     <div className="flex justify-center w-1/5">
-                                        {/* <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                                        </svg>
-
-                                        <input className="mx-2 border text-center w-8" type="text" value={items.card?.info?.name.length} onChange={(e) => {
-
-                                        }} />
-
-                                        <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
-                                            <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                                        </svg> */}
-
-                                        <button onClick={() => handleDecreamentFoodItem(items)}>
+                                        <button className="p-2 border" onClick={() => handleDecreamentFoodItem(items)}>
                                             -
                                         </button>
-                                        <span>{getItemCount(items)}</span>
-                                        <button onClick={() => handleAddFoodItem(items)}>+</button>
+                                        <span className="p-2">{getItemCount(items)}</span>
+                                        <button className="p-2 border" onClick={() => handleAddFoodItem(items)}>+</button>
                                     </div>
                                     <span className="text-center w-1/5 font-semibold text-sm">₹{((String(items.card?.info?.price) === "undefined") ? "₹₹" : String(items.card?.info?.price).slice(0, -2))}</span>
-                                    <span className="text-center w-1/5 font-semibold text-sm">₹{((String(items.card?.info?.price) === "undefined") ? "₹₹" : String(items.card?.info?.price).slice(0, -2))}</span>
+                                    <span className="text-center w-1/5 font-semibold text-sm">₹{((String(items.card?.info?.price) === "undefined") ? "₹₹" : String(items.card?.info?.price * items.quantity).slice(0, -2))}</span>
                                 </div>
 
                             )
@@ -88,10 +83,6 @@ const CartComponent = () => {
 
                     <div className="w-1/4 px-8 py-10">
                         <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
-                        <div className="flex justify-between mt-10 mb-5">
-                            <span className="font-semibold text-sm uppercase">Items {cartItems.length}</span>
-                            <span className="font-semibold text-sm">₹590</span>
-                        </div>
                         <div>
                             <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
                             <select className="block p-2 text-gray-600 w-full text-sm">
@@ -106,7 +97,7 @@ const CartComponent = () => {
                         <div className="border-t mt-8">
                             <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                                 <span>Total cost</span>
-                                <span>₹610</span>
+                                <span>610</span>
                             </div>
                             <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
                         </div>
