@@ -96,7 +96,7 @@ class Profile extends React.Component {
                     {this.state.isVisible && <div className='text-gray-300'>
                         <h2 className='text-2xl font-normal py-2'>Github: {this.state.name}</h2>
                         <img className='mx-auto py-2 rounded-2xl' src={this.state.img} alt="avatar" />
-                        <h2 className='py-2 text-2xl'>Location: {this.state.location}</h2>
+                        {/* <h2 className='py-2 text-2xl'>Location: {this.state.location}</h2> */}
                     </div>}
                 </section>
 
