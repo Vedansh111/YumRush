@@ -13,21 +13,21 @@ const cartSlice = createSlice({
             itemInCart ? itemInCart.quantity++ : state.items.push({ ...action.payload, quantity: 1 })
         },
         decreamentItem: (state, action) => {
-            const itemInCart = state.items.find(item => item.id === action.payload.id);
+            const itemInCart = state.items.find(items => items.id === action.payload.id);
             if (!itemInCart) return;
             if (itemInCart.quantity === 1) {
-                state.items = state.items.filter(item => item.id !== action.payload.id);
+                state.items = state.items.filter(items=> items.id !== action.payload.id);
             } else {
                 itemInCart.quantity--;
             }
             state.totalItemCount--;
         },
         removeItem: (state, action) => {
-            state.items = state.items.filter(item => item.id !== action.payload.id);
-            state.totalItemCount--;
+            // state.items = state.items.filter(items => items.id !== action.payload);
+            state.items.pop(state.items);
         },
         clearCart: (state) => {
-            state.items.clear()
+            state.items = []
         }
     }
 })
