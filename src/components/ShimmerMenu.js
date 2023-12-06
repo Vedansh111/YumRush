@@ -31,5 +31,4 @@ const ShimmerMenu = () => {
         </div>
     )
 }
-
 export default ShimmerMenu;
