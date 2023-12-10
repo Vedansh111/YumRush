@@ -1,7 +1,6 @@
 const ShimmerMenu = () => {
     return (
         <div>
-            
             <h1 className="flex tracking-tighter font-middle text-3xl shadow-xl rounded-xl w-72 h-16 mx-auto my-4 py-3 px-5 animate-pulse"></h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mx-5">
                 {Array(12).fill('').map((e, index) => {
