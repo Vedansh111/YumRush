@@ -23,6 +23,7 @@ class AboutClassComponent extends React.Component {
     componentDidMount(){
         // console.log("Parent DidMount");
     }
+    
     render() {
         // console.log("Parent Render");
         return (
