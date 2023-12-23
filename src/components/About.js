@@ -19,6 +19,7 @@ class AboutClassComponent extends React.Component {
         super(props);
         // console.log("Parent Constructor");
     }
+    
     componentDidMount(){
         // console.log("Parent DidMount");
     }
